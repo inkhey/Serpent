@@ -83,8 +83,8 @@ class Serpent(object):
         self.grandir()
         self.reduire()
     '''
-	MODIFICATEURS
-	'''
+    MODIFICATEURS
+    '''
 
     def set_direction(self, direction):
         """Changer la direction à l'aide d'un objet Direction"""
@@ -207,7 +207,7 @@ class Plateau(object):
             return True
         return False
 
-    def toString(self):
+    def __str__(self):
         """Affiche le plateau en texte"""
         sRet = ""
         for a in range(0, Plateau.TAILLE_MAX):
@@ -247,8 +247,8 @@ class Plateau(object):
 
 
 class Direction:
-
     """Valeur x,y des directions cardinales"""
+
     NORD = (-1, 0)
     SUD = (1, 0)
     EST = (0, 1)
@@ -256,22 +256,17 @@ class Direction:
 
 
 class Vitesse:
+
     NORMAL = 0.1
     RAPIDE = 0.05
     LENTE = 0.3
 
-# help(Serpent.direction)
-# help(Direction)
-# help(Metier)
 
 # interface minimale
 if __name__ == '__main__':
-    help(Direction)
-    help(Serpent)
-    help(Plateau)
     m = Plateau(4, 4)
     while not (m.aGagner() or m.aPerdu()):
-        print(m.toString())
+        print(m)
         car = raw_input("Entrez une Direction (N,S,E,O): ")
         direction = ()
         if (car == 'N'):
@@ -287,6 +282,6 @@ if __name__ == '__main__':
         m.aManger()
 
     if m.aGagner():
-        print "Bravo !"
+        print ("Bravo !")
     else:
-        print "Désolé !"
+        print ("Désolé !")
