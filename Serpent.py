@@ -14,6 +14,7 @@ from collections import deque
 from random import randint
 from six.moves import input
 
+
 class Serpent(object):
 
     """Création d'un Serpent
@@ -63,7 +64,7 @@ class Serpent(object):
                 if nvCoord[i] >= Plateau.TAILLE_MAX:
                     nvCoord[i] -= Plateau.TAILLE_MAX
         assert all(x >= 0 for x in nvCoord)
-        assert all( x < Plateau.TAILLE_MAX for x in nvCoord)
+        assert all(x < Plateau.TAILLE_MAX for x in nvCoord)
         # on retourne le résultat en tuple
         return tuple(nvCoord)
 
@@ -94,7 +95,7 @@ class Serpent(object):
     @direction.setter
     def direction(self, value):
         """Changer la direction à l'aide d'un objet Direction"""
-        assert len(value)==2
+        assert len(value) == 2
         if value[0] == -self.direction[0] and value[1] == -self.direction[1]:
             return False
         self._direction = value
@@ -254,6 +255,7 @@ class Plateau(object):
 
 
 class Direction:
+
     """Valeur x,y des directions cardinales"""
 
     NORD = (-1, 0)
@@ -284,11 +286,11 @@ if __name__ == '__main__':
             direction = Direction.SUD
         elif (car == 'O'):
             direction = Direction.OUEST
-        m.s.direction=direction
+        m.s.direction = direction
         m.s.avancer()
         m.aManger()
 
     if m.aGagner():
-        print ("Bravo !")
+        print("Bravo !")
     else:
-        print ("Désolé !")
+        print("Désolé !")

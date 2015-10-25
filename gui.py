@@ -12,9 +12,9 @@ TAILLE_CASE = 20
 
 def pos(x): return x[1] * TAILLE_CASE, x[0] * TAILLE_CASE
 if not pygame.font:
-    print ('Attention, polices désactivées')
+    print('Attention, polices désactivées')
 if not pygame.mixer:
-    print ('Attention, son désactivé')
+    print('Attention, son désactivé')
 
 
 FOND = 255, 255, 255
@@ -73,7 +73,7 @@ while continuer:
         break
     afficher()
     time.sleep(m.s.vitesse)
-    m.s.direction=direction
+    m.s.direction = direction
     m.s.avancer()
     m.aManger()
     pygame.display.flip()
