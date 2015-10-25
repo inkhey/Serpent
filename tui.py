@@ -72,7 +72,7 @@ while not (m.aGagner() or m.aPerdu()):
         direction = Direction.SUD
     else:
         direction = m.s.direction
-    m.s.set_direction(direction)
+    m.s.direction=direction
     m.s.avancer()
     m.aManger()
 

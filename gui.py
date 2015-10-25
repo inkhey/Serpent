@@ -73,7 +73,7 @@ while continuer:
         break
     afficher()
     time.sleep(m.s.vitesse)
-    m.s.set_direction(direction)
+    m.s.direction=direction
     m.s.avancer()
     m.aManger()
     pygame.display.flip()

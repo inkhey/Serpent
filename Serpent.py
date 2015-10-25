@@ -36,7 +36,7 @@ class Serpent(object):
     def __init__(self, x, y, direction):
         '''Constructeur avec position de départ x,y et directions'''
         self.coords = deque([(x, y)])  # Tableau de coordonnée du Serpent
-        self.direction = direction  # direction
+        self._direction = direction  # direction
         self.vitesse = Vitesse.NORMAL  # vitesse
 
         # On rempli le serpent par rapport à sa taille initiale
@@ -87,11 +87,17 @@ class Serpent(object):
     MODIFICATEURS
     '''
 
-    def set_direction(self, direction):
+    @property
+    def direction(self):
+        return self._direction
+
+    @direction.setter
+    def direction(self, value):
         """Changer la direction à l'aide d'un objet Direction"""
-        if direction[0] == -self.direction[0] and direction[1] == -self.direction[1]:
+        assert len(value)==2
+        if value[0] == -self.direction[0] and value[1] == -self.direction[1]:
             return False
-        self.direction = direction
+        self._direction = value
         return True
 
     def inv_sens(self):
@@ -278,7 +284,7 @@ if __name__ == '__main__':
             direction = Direction.SUD
         elif (car == 'O'):
             direction = Direction.OUEST
-        m.s.set_direction(direction)
+        m.s.direction=direction
         m.s.avancer()
         m.aManger()
 
