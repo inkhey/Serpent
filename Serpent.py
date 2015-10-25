@@ -12,7 +12,7 @@
 from collections import deque
 # liste chaînée pour gérer de façon optimisé le serpent.
 from random import randint
-
+from six.moves import input
 
 class Serpent(object):
 
@@ -62,7 +62,8 @@ class Serpent(object):
                     nvCoord[i] += Plateau.TAILLE_MAX
                 if nvCoord[i] >= Plateau.TAILLE_MAX:
                     nvCoord[i] -= Plateau.TAILLE_MAX
-            assert nvCoord[i] < 0 or nvCoord >= Plateau.TAILLE_MAX
+        assert all(x >= 0 for x in nvCoord)
+        assert all( x < Plateau.TAILLE_MAX for x in nvCoord)
         # on retourne le résultat en tuple
         return tuple(nvCoord)
 
@@ -267,7 +268,7 @@ if __name__ == '__main__':
     m = Plateau(4, 4)
     while not (m.aGagner() or m.aPerdu()):
         print(m)
-        car = raw_input("Entrez une Direction (N,S,E,O): ")
+        car = input("Entrez une Direction (N,S,E,O): ")
         direction = ()
         if (car == 'N'):
             direction = Direction.NORD

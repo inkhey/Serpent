@@ -20,7 +20,7 @@ def message(s):
     # hauteur d'affichage du message
     debut = hauteur / 2 - 2
     # message au centre de la ligne
-    ecran.addstr(Plateau.TAILLE_MAX / 2, Plateau.TAILLE_MAX + 5, s)
+    ecran.addstr(int(Plateau.TAILLE_MAX / 2), Plateau.TAILLE_MAX + 5, s)
     ecran.nodelay(False)                        # attente sur les getch()
     ecran.getch()                               # pour attendre...
 
